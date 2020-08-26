@@ -3,7 +3,24 @@ import ViewerTemplate from './components/ViewerTemplate/ViewerTemplate';
 import SpaceNavigator from './components/SpaceNavigator/SpaceNavigator';
 import Viewer from './components/Viewer/Viewer';
 
+import * as api from './lib/api';
+
 class App extends Component {
+
+  getAPOD = async (date) => {
+    try {
+      const response = await api.getAPOD(date);
+      console.log(response);
+    } catch (e) {
+      // Error
+      console.log(e);
+    }
+  }
+
+  componentDidMount() {
+    this.getAPOD();
+  }
+
   render() {
     return (
       <ViewerTemplate
