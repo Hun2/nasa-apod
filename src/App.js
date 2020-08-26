@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import ViewerTemplate from './components/ViewerTemplate/ViewerTemplate';
+import SpaceNavigator from './components/SpaceNavigator/SpaceNavigator';
+import Viewer from './components/Viewer/Viewer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <ViewerTemplate
+        spaceNavigator={<SpaceNavigator/>}
+        viewer={(
+          <Viewer
+            url="https://www.youtube.com/embed/uj3Lq7Gu94Y?rel=0"
+            mediaType="video"/>
+        )}
+      />
+    );
+  }
 }
 
 export default App;
