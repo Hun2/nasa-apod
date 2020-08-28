@@ -5,7 +5,7 @@ import { ChasingDots } from 'better-react-spinkit';
 
 const cx = classNames.bind(styles);
 
-const Viewer = ({ mediaType, url, loading }) => {
+const Viewer = ({ mediaType, url, loading, date }) => {
 
   if(loading) {
     // 로딩중일때 로더 보여주기
@@ -16,8 +16,8 @@ const Viewer = ({ mediaType, url, loading }) => {
 
   return (
     <div className={cx('viewer')}>
-      <div>
-        <h3>Y-M-D</h3>
+      <div className={cx('date')}>
+        <h3>{date}</h3>
       </div>
       {
         mediaType === 'image' ? (

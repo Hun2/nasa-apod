@@ -27,7 +27,7 @@ class App extends Component {
       const response = await api.getAPOD(date);
       // 비구조화 할당 + 새로운 이름
       const { date: retrievedDate, url, media_type: mediaType } = response.data;
-
+      console.log(response);
       if(!this.state.maxDate) {
         // 만약에 maxDate가 없으면 지금 받은 date로 지정
         this.setState({
@@ -72,7 +72,7 @@ class App extends Component {
   }
 
   render() {
-    const { url, mediaType, loading } = this.state;
+    const { url, mediaType, loading, date } = this.state;
     const { handlePrev, handleNext } = this;
 
     return (
@@ -82,7 +82,8 @@ class App extends Component {
           <Viewer
             url={url}
             mediaType={mediaType}
-            loading={loading}/>
+            loading={loading}
+            date={date}/>
         )}
       />
     );
